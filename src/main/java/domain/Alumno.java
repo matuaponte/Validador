@@ -3,6 +3,7 @@ package domain;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -13,14 +14,15 @@ public class Alumno {
     private String apellido;
     private Set<Materia> materiasAprobadas;
 
-    public Alumno(String nombre, String apellido, Set<Materia> materiasAprobadas) {
+    public Alumno(String nombre, String apellido) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.materiasAprobadas = materiasAprobadas;
+        this.materiasAprobadas = new HashSet<>();
     }
 
     public void agregarMateriaAprobada(Materia materia){
         materiasAprobadas.add(materia);
     }
+
 
 }
