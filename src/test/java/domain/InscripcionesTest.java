@@ -1,14 +1,11 @@
 package domain;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
 import java.util.HashSet;
 import java.util.Set;
-
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class InscripcionesTest{
@@ -71,7 +68,7 @@ public class InscripcionesTest{
         inscripcionMati = new Inscripcion(matias);
         inscripcionMati.agregarMateriaAcursar(dds);
 
-        assertTrue(inscripcionMati.aprobada(), "La inscripción debería ser aprobada.");
+        Assertions.assertTrue(inscripcionMati.aprobada());
     }
 
     @Test
@@ -80,7 +77,7 @@ public class InscripcionesTest{
         inscripcionFranco = new Inscripcion(franco);
         inscripcionFranco.agregarMateriaAcursar(dds);
 
-        assertFalse(inscripcionFranco.aprobada(), "La inscripción no debería ser aprobada.");
+        Assertions.assertFalse(inscripcionFranco.aprobada());
     }
 
     @Test
@@ -90,7 +87,7 @@ public class InscripcionesTest{
         inscripcionMati.agregarMateriaAcursar(dds);
         inscripcionMati.agregarMateriaAcursar(inglesII);
 
-        assertTrue(inscripcionMati.aprobada(), "La inscripción con varias materias tiene que ser aprobada.");
+        Assertions.assertTrue(inscripcionMati.aprobada());
     }
 
     @Test
@@ -100,6 +97,6 @@ public class InscripcionesTest{
         inscripcionFranco.agregarMateriaAcursar(inglesII);
         inscripcionFranco.agregarMateriaAcursar(pdp);
 
-        assertFalse(inscripcionFranco.aprobada(), "La inscripción no debería ser aprobada si al menos una materia no cumple.");
+        Assertions.assertFalse(inscripcionFranco.aprobada());
     }
 }
